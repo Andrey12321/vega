@@ -1,0 +1,9 @@
+# Doxyfile configuration for Doxygen
+
+PROJECT_NAME           = "My Project"
+OUTPUT_DIRECTORY       = "docs"
+INPUT                  = "include src"
+RECURSIVE              = YES
+GENERATE_LATEX         = NO
+GENERATE_MAN           = NO
+GENERATE_HTML          = YES
