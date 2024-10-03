@@ -13,7 +13,24 @@ jobs:
       with:
         cmake-version: '3.18.2'
     - name: Install dependencies
-      run: sudo apt-get install -y libgtest-dev google-benchmark
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgtest-dev cmake
+        sudo apt-get install -y cmake
+        cd /usr/src/gtest
+        sudo cmake .
+        sudo make
+        sudo cp *.a /usr/lib
+    - name: Install Google Benchmark
+      run: |
+        git clone https://github.com/google/benchmark.git
+        cd benchmark
+        git clone https://github.com/google/googletest.git
+        mkdir build
+        cd build
+        cmake .. -DBENCHMARK_DOWNLOAD_DEPENDENCIES=ON
+        make
+        sudo make install
     - name: Build
       run: |
         mkdir build
@@ -35,5 +52,5 @@ jobs:
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: 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
         publish_dir: ./docs
