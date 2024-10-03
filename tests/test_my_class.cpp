@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "my_class.h"
+#include "my_project/my_class.h"
 
 TEST(MyClassTest, MethodTest) {
     MyClass obj;
