@@ -1,5 +1,5 @@
 #include <benchmark/benchmark.h>
-#include "my_class.h"
+#include "my_project/my_class.h"
 
 static void BenchmarkMethod(benchmark::State& state) {
     MyClass obj;
